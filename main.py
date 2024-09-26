@@ -45,9 +45,48 @@ def msg(msg):
 
 if __name__ == "__main__":
   start_gen(tokens)
+  total_time = 0
   while True:
+  
+     start = time.time()
+  
+     # Start Cooldown
+     common_time = random.randint(1, 10)
+     print("Common time =", common_time)
+     time.sleep(common_time)
+  
+     # Mid Cooldown
+     mid = random.randint(1, 20)
+     print("Mid Time =", mid)
+     print('Both of them will take =', mid + common_time)
+     time.sleep(mid)
+  
+  
+     # Execution
+     msg('owo h)
+   
+     stop = time.time()
+     time_1 = stop - start
+  
+     total_time += time_1
+  
+     print("Time =", time_1)
+     print("Total time =", total_time)
+     print()
 
-    msg("owo h")
-    msg("owo sell all")
-    msg("owo cash")
-    time.sleep(random.randrange(15, 20))
+     final_time = 0
+     if total_time > 600:
+         print('Reached the limit, Shutting Down')
+         
+         second_break = random.randint(3600, 7200)
+         
+         print("Going to break!\nBreak time is around:", second_break//60, "mins")
+         time.sleep(second_break)
+         final_time += total_time
+         total_time = 0
+         print()
+  
+     if final_time > 1500:
+         print("Enough For today!")
+         print("Total Time Taken =",  total_time)
+         break
